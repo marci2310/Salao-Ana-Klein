@@ -25,7 +25,6 @@ img { max-width:100%;display:block }
 .button { border:0;display:inline-flex;align-items:center;justify-content:center;gap:22px;padding:17px 25px;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;transition:transform .25s,background .25s,color .25s,box-shadow .25s }
 .button span { font-size:16px;line-height:0 }
 .button:hover { transform:translateY(-3px);box-shadow:0 12px 30px rgba(33,29,29,.18) }
-.button--small { padding:12px 18px;gap:12px }
 .button--dark { background:var(--ink);color:var(--white) }
 .button--dark:hover { background:var(--rose-dark) }
 .button--light { background:var(--white);color:var(--ink) }
@@ -43,7 +42,6 @@ img { max-width:100%;display:block }
 .hero h1 { font:500 clamp(60px,8vw,122px)/.82 var(--serif);letter-spacing:-.055em;margin:34px 0 34px }
 .hero h1 em,h1 em,h2 em { font-style:italic;color:#f2c3bb;font-weight:400 }
 .hero__copy { color:rgba(255,255,255,.74);max-width:390px;font-size:15px;line-height:1.8 }
-.hero__actions { display:flex;align-items:center;gap:27px;margin-top:38px }
 .text-link { display:inline-flex;align-items:center;gap:20px;border-bottom:1px solid currentColor;padding-bottom:7px;color:var(--rose-dark);font-size:11px;letter-spacing:.09em;text-transform:uppercase;font-weight:600;transition:gap .2s }
 .text-link:hover { gap:27px }
 .text-link span { font-size:18px;font-weight:400 }
@@ -115,27 +113,6 @@ h2 { font:500 clamp(46px,5.4vw,80px)/.9 var(--serif);letter-spacing:-.055em;marg
 .gallery-card__label { position:absolute;z-index:1;bottom:20px;left:21px;color:white;font-size:11px;letter-spacing:.1em;text-transform:uppercase }
 .gallery-card__label b { font-size:16px;margin-left:15px;font-weight:400 }
 .section-nude { background:var(--nude) }
-.proof-top { display:flex;justify-content:space-between;align-items:start;margin-bottom:56px }
-.proof-rating { display:grid;grid-template-columns:auto auto;gap:2px 16px;align-items:center }
-.proof-rating strong { font:500 60px/.7 var(--serif);letter-spacing:-.07em }
-.proof-rating span { color:var(--gold);letter-spacing:2px }
-.proof-rating small { grid-column:2;color:var(--muted);font-size:10px }
-.testimonials { display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:18px }
-.testimonial { background:var(--cream);padding:31px;min-height:310px;display:flex;flex-direction:column;justify-content:space-between }
-.testimonial--featured { background:var(--ink);color:var(--white) }
-.quote-mark { font:100px/.4 var(--serif);color:var(--rose);height:33px }
-.testimonial blockquote { font:500 23px/1.15 var(--serif);letter-spacing:-.025em;margin:20px 0 27px }
-.testimonial:not(.testimonial--featured) blockquote { font-size:20px }
-.testimonial__meta { display:flex;justify-content:space-between;color:var(--rose-dark);font-size:10px;letter-spacing:.15em }
-.testimonial footer { display:flex;align-items:center;gap:11px }
-.avatar { display:grid;place-items:center;background:var(--rose);width:34px;height:34px;border-radius:50%;font-size:10px;color:white }
-.avatar--gold { background:var(--gold);color:var(--ink) }
-.avatar--dark { background:var(--ink);color:white }
-.testimonial footer>span:nth-child(2) { display:flex;flex-direction:column }
-.testimonial footer strong { font-size:11px }
-.testimonial footer small { font-size:9px;color:var(--muted) }
-.testimonial--featured footer small { color:#a89993 }
-.testimonial__stars { margin-left:auto;color:var(--gold);font-size:10px;letter-spacing:2px }
 .faq { display:grid;grid-template-columns:.85fr 1.15fr;gap:9vw }
 .faq__intro>p:last-child { color:var(--muted);max-width:300px }
 .faq-list details { border-top:1px solid var(--line);padding:21px 0 }
@@ -194,7 +171,6 @@ details[open] summary:after { content:'−' }
   .hero__content { padding:130px 6vw 90px }
   .hero h1 { font-size:18vw;margin:29px 0 }
   .hero__copy { font-size:14px;max-width:310px }
-  .hero__actions { align-items:flex-start;flex-direction:column;gap:22px }
   .hero__aside { display:none }
   .hero__bottom { left:6vw;right:6vw }
   .hero__bottom span:first-child,.hero__scroll-line { display:none }
@@ -229,11 +205,6 @@ details[open] summary:after { content:'−' }
   .gallery-card--offset { grid-row:3;grid-column:1 }
   .gallery-note { grid-column:2;grid-row:3;padding:7px 0;font-size:18px }
   .gallery-card__label { left:12px;bottom:13px;font-size:9px }
-  .proof-top { display:block }
-  .proof-rating { margin-top:38px }
-  .testimonials { display:block }
-  .testimonial { min-height:270px;margin-bottom:11px;padding:24px }
-  .testimonial--featured blockquote { font-size:25px }
   .faq { display:block }
   .faq__intro { margin-bottom:45px }
   .faq-list summary { font-size:20px;grid-template-columns:32px 1fr 25px }
@@ -275,10 +246,9 @@ details[open] summary:after { content:'−' }
 .map-facade span { font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--rose-dark) }
 
 /* Renderização preguiçosa das seções abaixo da dobra */
-.statement, .services, .combo, .experience, .social-proof, .locations, .faq, .contact, .site-footer { content-visibility:auto; contain-intrinsic-size:auto 700px }
+.statement, .services, .combo, .experience, .locations, .faq, .contact, .site-footer { content-visibility:auto; contain-intrinsic-size:auto 700px }
 .hero + .statement { contain-intrinsic-size:auto 680px }
 
-.unit-note { margin:0 0 22px; padding:14px 18px; border:1px solid var(--rose); border-radius:14px; background:var(--cream); color:var(--rose-dark); font-size:14px; line-height:1.5 }
 
 /* Galeria com várias fotos (setas) */
 .modal-nav { position:absolute; top:50%; transform:translateY(-50%); width:46px; height:46px; border:1px solid rgba(255,255,255,.35); border-radius:50%; background:rgba(21,16,15,.55); color:#fff; font:300 30px/1 var(--serif); display:grid; place-items:center; cursor:pointer }

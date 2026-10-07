@@ -70,7 +70,6 @@ function setupComboFlow() {
 const unitNames = { '5581991220930': 'Shopping RioMar', '558195071572': 'Shopping Recife', '558196941964': 'Shopping Plaza' };
 function updateWhatsappLinks() {
   const services = [...document.querySelectorAll('.combo-option input:checked')].map((input) => input.value);
-  const note = document.querySelector('#unit-note');
   document.querySelectorAll('a[href^="https://wa.me/"]').forEach((link) => {
     if (!link.dataset.waOriginal) link.dataset.waOriginal = link.getAttribute('href');
     const number = (link.dataset.waOriginal.match(/wa\.me\/(\d+)/) || [])[1];
@@ -79,7 +78,6 @@ function updateWhatsappLinks() {
     const text = `Olá, Ana Klein Beauty! Gostaria de saber mais sobre: ${services.join(' + ')}.${unit ? ` Tenho interesse na unidade ${unit}.` : ''}`;
     link.setAttribute('href', `https://wa.me/${number}?text=${encodeURIComponent(text)}`);
   });
-  if (note) { note.hidden = !services.length; note.textContent = services.length ? `Mensagem pronta com: ${services.join(' + ')}. Escolha a unidade e toque em “Falar no WhatsApp”.` : ''; }
 }
 
 function setupTabs() {
