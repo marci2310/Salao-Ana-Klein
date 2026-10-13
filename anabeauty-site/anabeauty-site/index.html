@@ -286,21 +286,21 @@ details[open] summary:after { content:'−' }
 
 /* ───────── Animação de entrada ───────── */
 :root { --enter:.1s }
-.has-intro { --enter:2.05s }
+.has-intro { --enter:1.2s }
 
 /* cortina de abertura (só na 1ª visita da sessão) */
 .intro { display:none }
-.has-intro .intro { position:fixed; inset:0; z-index:300; display:grid; place-items:center; background:var(--ink); color:var(--white); animation:introOut .85s cubic-bezier(.76,0,.24,1) 1.9s forwards }
+.has-intro .intro { position:fixed; inset:0; z-index:300; display:grid; place-items:center; background:var(--ink); color:var(--white); animation:introOut .6s cubic-bezier(.76,0,.24,1) 1.1s forwards }
 .intro__inner { display:grid; justify-items:center }
 .intro__mark { position:relative; width:124px; height:124px; display:grid; place-items:center }
 .intro__ring { position:absolute; inset:0; width:100%; height:100%; transform:rotate(-90deg) }
-.intro__ring circle { fill:none; stroke:rgba(255,255,255,.7); stroke-width:1; stroke-dasharray:100; stroke-dashoffset:100; animation:introDraw 1.1s cubic-bezier(.65,0,.35,1) .15s forwards }
-.intro__ak { font:600 40px var(--serif); letter-spacing:-.08em; margin-left:-4px; animation:introPop .7s cubic-bezier(.2,.7,.2,1) .5s both }
-.intro__dot { position:absolute; width:8px; height:8px; border-radius:50%; background:var(--gold); animation:introPop .5s ease .95s both }
+.intro__ring circle { fill:none; stroke:rgba(255,255,255,.7); stroke-width:1; stroke-dasharray:100; stroke-dashoffset:100; animation:introDraw .7s cubic-bezier(.65,0,.35,1) .1s forwards }
+.intro__ak { font:600 40px var(--serif); letter-spacing:-.08em; margin-left:-4px; animation:introPop .5s cubic-bezier(.2,.7,.2,1) .25s both }
+.intro__dot { position:absolute; width:8px; height:8px; border-radius:50%; background:var(--gold); animation:introPop .4s ease .5s both }
 .intro__dot--top { top:-4px; left:58px }
 .intro__dot--bottom { bottom:-4px; right:58px }
-.intro__name { margin:26px 0 0; font:600 40px/1 var(--serif); letter-spacing:-.03em; animation:riseIn .8s cubic-bezier(.2,.7,.2,1) 1s both }
-.intro__sub { margin:12px 0 0; font-size:11px; letter-spacing:.5em; padding-left:.5em; color:var(--gold); animation:introSub 1s ease 1.2s both }
+.intro__name { margin:26px 0 0; font:600 40px/1 var(--serif); letter-spacing:-.03em; animation:riseIn .6s cubic-bezier(.2,.7,.2,1) .5s both }
+.intro__sub { margin:12px 0 0; font-size:11px; letter-spacing:.5em; padding-left:.5em; color:var(--gold); animation:introSub .6s ease .7s both }
 @keyframes introDraw { to { stroke-dashoffset:0 } }
 @keyframes introPop { from { opacity:0; transform:scale(.7) } to { opacity:1; transform:none } }
 @keyframes introSub { from { opacity:0; letter-spacing:.9em } to { opacity:1; letter-spacing:.5em } }
@@ -310,7 +310,7 @@ details[open] summary:after { content:'−' }
 @keyframes riseIn { from { opacity:0; transform:translateY(28px) } to { opacity:1; transform:none } }
 @keyframes fadeIn { from { opacity:0 } to { opacity:1 } }
 @keyframes heroZoom { from { transform:scale(1.12) } to { transform:scale(1) } }
-.hero__image { animation:heroZoom 2.6s cubic-bezier(.2,.7,.2,1) var(--enter) both }
+.hero__image { animation:heroZoom 2.2s cubic-bezier(.2,.7,.2,1) var(--enter) both }
 .hero__content > * { animation:riseIn .9s cubic-bezier(.2,.7,.2,1) both }
 .hero__content > :nth-child(1) { animation-delay:calc(var(--enter) + .1s) }
 .hero__content > :nth-child(2) { animation-delay:calc(var(--enter) + .3s) }
@@ -415,7 +415,7 @@ if (intro) {
   if (document.documentElement.classList.contains('has-intro')) {
     try { sessionStorage.setItem('ak-intro', '1'); } catch (error) { /* sem armazenamento: só repete na próxima visita */ }
     intro.addEventListener('animationend', (event) => { if (event.animationName === 'introOut') intro.remove(); });
-    setTimeout(() => intro.remove(), 4500); // garantia: nunca deixa a cortina presa
+    setTimeout(() => intro.remove(), 3000); // garantia: nunca deixa a cortina presa
   } else intro.remove();
   window.addEventListener('pageshow', (event) => { if (event.persisted) intro.remove(); });
 }
